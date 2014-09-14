@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+		<!--//meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /-->
+		<meta name="viewport" content="width=device-width, , height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="css/themes/io.min.css" />
+		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="css/jquery/jquery.mobile.custom.structure.min.css" />
+
+		<title>Invisible Oranges</title>
+	</head>
+	<body>
+
+		<div class="app">
+			<div id="deviceready">
+				<p class="event listening">
+					Connecting to Device
+				</p>
+				<div class="event received">
+					<!-- Start of first page: #home -->
+					<div data-role="page" id="home">
+						<div data-role="header" class="banner">
+							<img src="img/logo.png"/>
+							<div data-role="navbar" data-iconpos="left" >
+								<!--// begin navbar //-->
+								<ul>
+									<li>
+										<a href="#home" data-icon="home" class="ui-btn-active ui-state-persist">Home</a>
+									</li>
+									<li>
+										<a href="#about" data-icon="info">About</a>
+									</li>
+								</ul>
+							</div><!-- /navbar -->
+						</div><!-- /header -->
+
+						<div data-role="content">
+
+							<ul class="ui-listview" id="list" data-role="listview"></ul>
+						</div><!-- /content -->
+
+						<div data-role="footer">
+
+						</div><!-- /footer -->
+					</div><!-- /page #home -->
+
+					<!-- Start of second page: #about -->
+					<div data-role="page" id="about">
+						<div data-role="header" class="banner">
+
+							<img src="img/logo.png"/>
+							<div data-role="navbar" data-iconpos="left">
+								<!--// begin navbar //-->
+
+								<ul>
+									<li>
+										<a href="#home" data-icon="home">Home</a>
+									</li>
+									<li>
+										<a href="#about" data-icon="info" class="ui-btn-active ui-state-persist">About</a>
+									</li>
+								</ul>
+							</div><!-- /navbar -->
+						</div><!-- /header -->
+
+						<div data-role="content" id="about_text">
+							<h1>About</h1>
+							<p>
+								This application was built for ICT 4580: Mobile Applications with Web Development
+							</p>
+							<h3>About Invisible Oranges</h3>
+							<p>
+								Invisible Oranges is a blog devoted to heavy metal.
+							</p>
+							<p>
+								The term “invisible oranges” describes the clutching gesture you make when the mighty force of metal flows through you.
+							</p>
+							<h3>About the Developer</h3>
+							<p>
+								Sharon Clark is a web developer living in Colorado.
+							</p>
+							<h3>Credits</h3>
+
+							<p>
+								Major thanks to: <a href="http://code.tutsplus.com/categories/phonegap">Tutsplus Phonegap tutorials</a> for helpful and user friendly examples, <a href="http://stackoverflow.com">Stackoverflow.com</a> for pre-existing solutions to my newly found problems, and <a href="https://www.youtube.com/channel/UCr10DaQrUqcCud3tfAMr6Gg">Lightfox177's Youtube channel</a> for inspiring tunes.
+							</p>
+						</div><!-- /content -->
+						<div data-role="footer">
+
+						</div><!-- /footer -->
+					</div><!-- /page #about -->
+
+					<div data-role="page" id="article">
+						<div data-role="header" class="banner">
+							<img src="img/logo.png"/>
+							<div data-role="navbar" data-iconpos="left" >
+								<!--// begin navbar //-->
+								<ul>
+									<li>
+										<a href="#home" data-icon="home">Home</a>
+									</li>
+									<li>
+										<a href="#about" data-icon="info">About</a>
+									</li>
+									<li>
+										<a href="#" id="article_url" data-icon="forward">Open</a>
+									</li>
+								</ul>
+							</div><!-- /navbar -->
+
+						</div><!-- /header -->
+
+						<div data-role="content">
+							<h1 id="article_title"></h1>
+							<div id="article_content">
+								Article content not loaded.
+							</div>
+						</div><!-- /content -->
+
+						<div data-role="footer">
+
+						</div><!-- /footer -->
+					</div><!-- /page #article -->
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.mobile.custom.min.js"></script>
+		<script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				app.initialize();
+
+				$('#about_text a').on('click', function(e) {
+					e.preventDefault();
+					var url = $(this).attr('href');
+					openBrowser(url);
+				});
+			});
+		</script>
+	</body>
+</html>

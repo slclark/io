@@ -1,0 +1,7 @@
+.cordova/
+hooks/
+merges/
+platforms/
+plugins/
+www/spec/
+www/spec.html
